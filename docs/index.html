@@ -25,12 +25,17 @@
       }
 
     </script>
+    <style>
+      input, button {
+        width: 200px;
+      }
+    </style>
   </head>
   <body>
     <h1>Page A.</h1>
     <input type="text" id="CT" label="client_token" /><br/>
-    <input type="button" onclick="action_init">Init SDK</button><br/>
-    <input type="button" onclick="action_load">Load</button><br/>
-    <input type="button" onclick="action_authorize">Authorize</button><br/>
+    <button type="button" onclick="action_init()">Init SDK</button><br/>
+    <button type="button" onclick="action_load()">Load</button><br/>
+    <button type="button" onclick="action_authorize()">Authorize</button><br/>
   </body>
 </html>
