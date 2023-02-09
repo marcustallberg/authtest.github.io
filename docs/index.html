@@ -7,10 +7,30 @@
     <script src="https://x.klarnacdn.net/kp/lib/v1/api.js"></script>
     <title>Authtest</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+
+      const _client_token = document.getElementById('CT').value
+
+      const action_init = () => {
+        console.log('INIT')
+        console.log(_client_token)
+      }
+      const action_load = () => {
+        console.log('LOAD')
+        console.log(_client_token)
+      }
+      const action_authorize = () => {
+        console.log('AUTHORIZE')
+        console.log(_client_token)
+      }
+
+    </script>
   </head>
   <body>
-    <input type="text" label="client_token" /><br/>
-    <input type="button" label="init SDK"/><br/>
-    <input type="button" label="load"/><br/>
+    <h1>Page A.</h1>
+    <input type="text" id="CT" label="client_token" /><br/>
+    <input type="button" onclick="action_init">Init SDK</button><br/>
+    <input type="button" onclick="action_load">Load</button><br/>
+    <input type="button" onclick="action_authorize">Authorize</button><br/>
   </body>
 </html>
