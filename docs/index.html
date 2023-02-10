@@ -6,22 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://x.klarnacdn.net/kp/lib/v1/api.js"></script>
     <title>Authtest</title>
-    <link rel="stylesheet" href="style.css">
     <script>
-
-      
 
       function action_init() {
         var _client_token = document.getElementById('CT').value
-        console.log('INIT')
-        console.log(_client_token)
         Klarna.Payments.init({
           client_token: _client_token
       })
       }
       function action_load() {
-        var _client_token = document.getElementById('CT').value
-        console.log('LOAD')
         Klarna.Payments.load({
           container: '#klarna-payments-container'
         }, function (res) {
@@ -29,7 +22,6 @@
         })
       }
       function action_authorize () {
-        console.log('AUTHORIZE')
         Klarna.Payments.authorize({}, function(res){
           console.log(res)
         })
@@ -38,12 +30,14 @@
     </script>
     <style>
       input, button {
-        width: 200px;
+        width: 400px;
+        margin: 10px;
+        padding: 5px 0;
       }
     </style>
   </head>
   <body>
-    <h1>Page A.</h1>
+    <h1>Authorize test</h1>
     <input type="text" id="CT" label="client_token" /><br/>
     <button type="button" onclick="action_init()">Init SDK</button><br/>
     <button type="button" onclick="action_load()">Load</button><br/>
