@@ -9,19 +9,30 @@
     <link rel="stylesheet" href="style.css">
     <script>
 
-      const _client_token = document.getElementById('CT').value
+      
 
-      const action_init = () => {
+      function action_init() {
+        var _client_token = document.getElementById('CT').value
         console.log('INIT')
         console.log(_client_token)
+        Klarna.Payments.init({
+          client_token: _client_token
+      })
       }
-      const action_load = () => {
+      function action_load() {
+        var _client_token = document.getElementById('CT').value
         console.log('LOAD')
-        console.log(_client_token)
+        Klarna.Payments.load({
+          container: '#klarna-payments-container'
+        }, function (res) {
+          console.debug(res);
+        })
       }
-      const action_authorize = () => {
+      function action_authorize () {
         console.log('AUTHORIZE')
-        console.log(_client_token)
+        Klarna.Payments.authorize({}, function(res){
+          console.log(res)
+        })
       }
 
     </script>
@@ -37,5 +48,7 @@
     <button type="button" onclick="action_init()">Init SDK</button><br/>
     <button type="button" onclick="action_load()">Load</button><br/>
     <button type="button" onclick="action_authorize()">Authorize</button><br/>
+
+    <div id="klarna-payments-container"></div>
   </body>
 </html>
