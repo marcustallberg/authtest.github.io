@@ -5,23 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://x.klarnacdn.net/kp/lib/v1/api.js"></script>
+    <script>
+      const attemptToPopulateClientToken = () => {
+        const queryString = window.location.search
+        const urlParams = new URLSearchParams(queryString)
+          if (urlParams.has('client_token')) {
+            const clientToken = urlParams.get('client_token')
+            const inputField = document.getElementById("CT")
+            inputField.value = clientToken 
+          }
+      }
+      document.addEventListener('DOMContentLoaded',getClientToken)
+    </script>
     <title>Authtest</title>
     <script>
 
-      function action_init() {
+      const action_init = () => {
         var _client_token = document.getElementById('CT').value
         Klarna.Payments.init({
           client_token: _client_token
       })
       }
-      function action_load() {
+      const action_load = () => {
         Klarna.Payments.load({
           container: '#klarna-payments-container'
         }, function (res) {
           console.debug(res);
         })
       }
-      function action_authorize () {
+      const action_authorize = () => {
         Klarna.Payments.authorize({}, function(res){
           console.log(res)
         })
